@@ -4,15 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.li.mir.publish.controller.index.model.IndexModel;
+import com.li.mir.publish.controller.index.vo.M2IndexPageVo;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.apache.commons.lang3.time.DateUtils;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.ui.Model;
 
 /**
  * Created by lining on 2019/6/4.
@@ -26,8 +21,8 @@ public class Index {
 
     @RequestMapping("/")
     public List index() {
-        List<IndexModel> list = Lists.newArrayList();
-        IndexModel e = new IndexModel();
+        List<M2IndexPageVo> list = Lists.newArrayList();
+        M2IndexPageVo e = new M2IndexPageVo();
         e.setId(1L);
         e.setDesc("desc");
         e.setName("name");

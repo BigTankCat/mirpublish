@@ -1,4 +1,4 @@
-package com.li.mir.publish.controller.index.model;
+package com.li.mir.publish.controller.index.vo;
 
 /**
  * Created by lining on 2019/6/5.
@@ -6,7 +6,7 @@ package com.li.mir.publish.controller.index.model;
  * @author lining
  * @date 2019/06/05
  */
-public class IndexModel {
+public class M2IndexPageVo {
     private Long id;
     /**
      * 开服名称
