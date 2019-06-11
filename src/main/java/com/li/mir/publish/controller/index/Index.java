@@ -3,9 +3,12 @@ package com.li.mir.publish.controller.index;
 import java.util.Date;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import com.google.common.collect.Lists;
 import com.li.mir.publish.controller.index.vo.M2IndexPageVo;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Index {
-
+    @Autowired
+    private DataSource dataSource;
     @RequestMapping("/")
     public List index() {
         List<M2IndexPageVo> list = Lists.newArrayList();
@@ -31,6 +35,7 @@ public class Index {
         e.setQqNum("12334566");
 
         list.add(e);
+
 
         return list;
     }
