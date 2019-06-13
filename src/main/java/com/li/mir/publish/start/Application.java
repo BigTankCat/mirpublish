@@ -2,6 +2,7 @@ package com.li.mir.publish.start;
 
 import java.util.Arrays;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan("com.li.mir.publish")
+@MapperScan(basePackages = {"com.li.mir.publish.dal.mapper" })
 public class Application {
 
     public static void main(String[] args) {

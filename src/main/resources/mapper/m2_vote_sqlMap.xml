@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.mir.publish.dal.mapper.M2VoteMapper">
+    <resultMap id="resultMap" type="com.li.mir.publish.dal.mapper.M2VoteMapper">
+        <result property="id" column="id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="voteUserId" column="vote_user_id"/>
+        <result property="voteFlag" column="vote_flag"/>
+        <result property="servicePublishInfoId" column="service_publish_info_id"/>
+        <result property="serviceComment" column="service_comment"/>
+    </resultMap>
+
+    <sql id="column_List">
+        id, gmt_create, gmt_modified, vote_user_id, vote_flag, service_publish_info_id, service_comment
+    </sql>
+
+    <insert id="insert" parameterType="com.li.mir.publish.model.M2Vote">
+        insert into m2_vote(
+          gmt_create, gmt_modified,
+          vote_user_id,
+          vote_flag,
+          service_publish_info_id,
+           service_comment
+        ) values (
+        now(),
+        now(),
+        #{voteUserId},
+        #{voteFlag},
+        #{servicePublishInfoId},
+        #{serviceComment}
+        )
+    </insert>
+    <select id="selectByUserId" parameterType="Long" resultMap="resultMap">
+        select
+        <include refid="column_List"/>
+        from m2_vote
+        where vote_user_id = #{voteUserId}
+    </select>
+    <select id="selectById" parameterType="Long" resultMap="resultMap">
+        select
+        <include refid="column_List"/>
+        from m2_vote
+        where id = #{id}
+    </select>
+    <update id="update" parameterType="com.li.mir.publish.model.M2Vote">
+        update m2_vote
+            gmt_modified = now(),
+            vote_user_id = #{voteUserId},
+            vote_flag = #{voteFlag},
+            service_publish_info_id = #{servicePublishInfoId},
+            service_comment = #{serviceComment}
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="Long">
+        delete from m2_vote
+        where id = #{id}
+    </delete>
+</mapper>

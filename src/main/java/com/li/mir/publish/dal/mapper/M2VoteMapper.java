@@ -1,4 +1,4 @@
-package com.li.mir.publish.dal;
+package com.li.mir.publish.dal.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -9,6 +9,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2019/06/05
  */
 @Mapper
-public interface M2UserMapper {
-    
+public interface M2VoteMapper {
 }

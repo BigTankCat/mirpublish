@@ -19,7 +19,7 @@ gmt_modified datetime NOT NULL COMMENT '修改时间',
 vote_user_id bigint(20) unsigned NOT NULL COMMENT 'nick',
 vote_flag varchar(8)  COMMENT '投票结果',
 service_publish_info_id bigint(20) unsigned NOT NULL COMMENT '服务器发布id',
-servece_comment varchar(512) COMMENT '评论',
+service_comment varchar(512) COMMENT '评论',
 
 PRIMARY KEY (id),
 KEY idx_user (vote_user_id,gmt_create),
@@ -37,11 +37,11 @@ description varchar(128)   COMMENT '描述',
 url varchar(128) COMMENT 'url',
 qq_num varchar(16) COMMENT 'qq',
 service_master_user_id bigint(20) COMMENT '开服的管理员id',
-
+type varchar(16) DEFAULT NULL COMMENT '类型',
 PRIMARY KEY (id),
 KEY idx_openTime (open_time),
 KEY sidx_ervice(service_master_user_id)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='投票结果';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='开服列表';
 
 
 

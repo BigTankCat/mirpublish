@@ -7,6 +7,8 @@ import javax.sql.DataSource;
 
 import com.google.common.collect.Lists;
 import com.li.mir.publish.controller.index.vo.M2IndexPageVo;
+import com.li.mir.publish.dal.mapper.M2UserMapper;
+import com.li.mir.publish.model.M2User;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Index {
+
     @Autowired
-    private DataSource dataSource;
+    private M2UserMapper m2UserMapper;
     @RequestMapping("/")
     public List index() {
         List<M2IndexPageVo> list = Lists.newArrayList();
@@ -36,6 +39,8 @@ public class Index {
 
         list.add(e);
 
+        M2User m2User = m2UserMapper.selectByUserId(1L);
+        System.out.println(m2User);
 
         return list;
     }
