@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cainiao.finance.biz.platform.dal.dao.CfAccessDataDAO">
+    <resultMap id="resultMap" type="com.li.mir.publish.model.M2ServicePublishInfo">
+        <result property="id" column="id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="openTime" column="open_time"/>
+        <result property="description" column="description"/>
+        <result property="url" column="url"/>
+        <result property="qqNum" column="qq_num"/>
+        <result property="serviceMasterUserId" column="service_master_user_id"/>
+        <result property="type" column="type"/>
+    </resultMap>
+
+    <sql id="column_List">
+        id, gmt_create, gmt_modified, name, open_time, description, url, qq_num,service_master_user_id,type
+    </sql>
+
+    <insert id="insert" parameterType="com.li.mir.publish.model.M2ServicePublishInfo">
+        insert into m2_service_publish_info(
+           gmt_create, gmt_modified, name, open_time, description, url, qq_num,service_master_user_id,type
+        ) values (
+        now(),
+        now(),
+        #{name},
+        #{openTime},
+        #{description},
+        #{url},
+        #{qqNum},
+        #{serviceMasterUserId},
+        #{type}
+        )
+    </insert>
+
+    <select id="selectByTime" parameterType="Map" resultMap="resultMap">
+        select
+        <include refid="column_List"/>
+        from m2_service_publish_info
+        where
+        open_time &gt;= #{startTime} and open_time &lt;= #{endTime}
+        ORDER by open_time asc
+
+    </select>
+
+    <update id="update" parameterType="com.li.mir.publish.model.M2ServicePublishInfo">
+        update m2_service_publish_info
+            gmt_modified = now(),
+            name = #{name},
+             open_time= #{openTime},
+              description= #{description},
+              url= #{url},
+               qq_num= #{qqNum},
+               service_master_user_id= #{serviceMasterUserId},
+               type= #{type}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Long">
+        delete from m2_service_publish_info
+        where id = #{id}
+    </delete>
+
+</mapper>

@@ -6,7 +6,7 @@ package com.li.mir.publish.model;
  * @author lining
  * @date 2019/06/05
  */
-public class M2Vote {
+public class M2Vote extends CommonDalModel{
     /**
      * 投票者userid
      */
@@ -20,6 +20,11 @@ public class M2Vote {
      * serviceInfoId
      */
     private Long serviceInfoId;
+
+    /**
+     * 评论
+     */
+    private String serveceComment;
 
     public Long getVoteUserId() {
         return voteUserId;
@@ -43,5 +48,13 @@ public class M2Vote {
 
     public void setServiceInfoId(Long serviceInfoId) {
         this.serviceInfoId = serviceInfoId;
+    }
+
+    public String getServeceComment() {
+        return serveceComment;
+    }
+
+    public void setServeceComment(String serveceComment) {
+        this.serveceComment = serveceComment;
     }
 }

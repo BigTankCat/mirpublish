@@ -6,8 +6,8 @@ package com.li.mir.publish.model;
  * @author lining
  * @date 2019/06/05
  */
-public class M2User {
-    private Long userId;
+public class M2User extends CommonDalModel {
+
     /**
      * 用户名
      */
@@ -31,14 +31,6 @@ public class M2User {
      * 邮箱
      */
     private String email;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
 
     public String getNick() {
         return nick;

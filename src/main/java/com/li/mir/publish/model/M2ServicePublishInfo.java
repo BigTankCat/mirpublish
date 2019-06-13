@@ -2,15 +2,16 @@ package com.li.mir.publish.model;
 
 import java.util.Date;
 
+import com.li.mir.publish.constant.PublishInfoTypeEnum;
+
 /**
  * Created by lining on 2019/6/5.
  *
  * @author lining
  * @date 2019/06/05
  */
-public class M2ServiceInfo {
+public class M2ServicePublishInfo extends CommonDalModel {
 
-    private Long id;
     /**
      * 开服名称
      */
@@ -22,7 +23,7 @@ public class M2ServiceInfo {
     /**
      * 描述
      */
-    private String desc;
+    private String description;
 
     /**
      * url
@@ -39,13 +40,10 @@ public class M2ServiceInfo {
      */
     private Long serviceMasterUserId;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    /**
+     * type
+     */
+    private PublishInfoTypeEnum type;
 
     public String getName() {
         return name;
@@ -63,12 +61,12 @@ public class M2ServiceInfo {
         this.openTime = openTime;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUrl() {
@@ -93,5 +91,13 @@ public class M2ServiceInfo {
 
     public void setServiceMasterUserId(Long serviceMasterUserId) {
         this.serviceMasterUserId = serviceMasterUserId;
+    }
+
+    public PublishInfoTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(PublishInfoTypeEnum type) {
+        this.type = type;
     }
 }
