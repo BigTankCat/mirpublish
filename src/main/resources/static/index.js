@@ -71,6 +71,6 @@ class UserGist extends React.Component {
                     }
 
                     ReactDOM.render(
-                    <UserGist source="http://localhost:8080"/>,
+                    <UserGist source="/"/>,
                     document.getElementById('root')
                     );
