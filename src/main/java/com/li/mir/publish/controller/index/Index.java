@@ -31,16 +31,15 @@ public class Index {
         List<M2IndexPageVo> list = Lists.newArrayList();
         M2IndexPageVo e = new M2IndexPageVo();
         e.setId(1L);
-        e.setDesc("desc");
+        e.setDesc("酒鬼传奇");
         e.setName("name");
-        e.setUrl("www.baidu.com");
+        e.setUrl("www.jiugui888.info");
         e.setOpenTime(DateFormatUtils.format(new Date(),"yyyy-MM-dd mm:HH:ss") );
-        e.setQqNum("12334566");
-
+        e.setQqNum("625805992");
         list.add(e);
 
-        M2User m2User = m2UserMapper.selectByUserId(1L);
-        System.out.println(m2User);
+        //M2User m2User = m2UserMapper.selectByUserId(1L);
+        //System.out.println(m2User);
 
         return list;
     }
