@@ -41,6 +41,16 @@ public class M2ServicePublishInfo extends CommonDalModel {
     private Long serviceMasterUserId;
 
     /**
+     * 好评
+     */
+    private Long like;
+
+    /**
+     * 差评
+     */
+    private Long unLike;
+
+    /**
      * type
      */
     private PublishInfoTypeEnum type;
@@ -99,5 +109,21 @@ public class M2ServicePublishInfo extends CommonDalModel {
 
     public void setType(PublishInfoTypeEnum type) {
         this.type = type;
+    }
+
+    public Long getLike() {
+        return like;
+    }
+
+    public void setLike(Long like) {
+        this.like = like;
+    }
+
+    public Long getUnLike() {
+        return unLike;
+    }
+
+    public void setUnLike(Long unLike) {
+        this.unLike = unLike;
     }
 }
