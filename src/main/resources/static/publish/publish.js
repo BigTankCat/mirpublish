@@ -35,32 +35,47 @@ class UserGist extends React.Component {
         // });
     }
 
-    handleSubmit(event) {
-        event.preventDefault(); //阻止表单默认提交
-        var forms = this.props.form;
-        if (!this.state.value) {
-            alert('提交内容不能为空！');
-            return;
-        }
-        ;
-        alert('Submit text is ' + this.state.value); //这里可以写入ajax代码
+    handleSubmit() {
+        let formData = new FormData();
+        formData.append("name", this.state.name);
+        formData.append("description",  this.state.description,);
+        formData.append( "openTime", this.state.openTime,);
+        formData.append( "url",  this.state.url,);
+        formData.append(   "qqNum",  this.state.qqNum);
+
+        fetch("/publish/add", {
+            method: "POST", mode: "cors",//可以在这设置跨域
+            body: formData
+        }).
+      then(function(res){
+            if(res.ok){
+                res.json().then(function(data){
+                    console.log("pages =", data);
+                    alert("评价成功");
+                })
+            }else{
+                alert("系统异常，请稍后再试")
+            }
+        }, function(e){
+            alert("系统异常，请稍后再试")
+        })
 
     }
 
     handleName(e) {
-        this.state = {name:e.target.value}
+        this.state.name= e.target.value;
     }
     handleUrl(e) {
-        this.state = {url:e.target.value}
+        this.state.url= e.target.value;
     }
     handleDescription(e) {
-        this.state = {description:e.target.value}
+        this.state.description= e.target.value;
     }
     handleOpenTime(e) {
-        this.state = {openTime:e.target.value}
+        this.state.openTime= e.target.value;
     }
     handleQqNum(e) {
-        this.state = {qqNum:e.target.value}
+        this.state.qqNum= e.target.value;
     }
 
 
